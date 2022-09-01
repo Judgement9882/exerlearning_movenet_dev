@@ -24,6 +24,7 @@ import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
+import android.hardware.camera2.CameraDevice
 import android.os.Bundle
 import android.os.Process
 import android.util.Log
@@ -43,6 +44,7 @@ import org.tensorflow.lite.examples.poseestimation.camera.CameraSource
 import org.tensorflow.lite.examples.poseestimation.data.Device
 import org.tensorflow.lite.examples.poseestimation.ml.*
 import org.tensorflow.lite.examples.poseestimation.VisualizationUtils
+import kotlin.concurrent.timer
 
 import org.tensorflow.lite.examples.poseestimation.data.BodyPart
 import java.lang.Math.abs
@@ -95,6 +97,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var setLay : TextView
     private lateinit var countLay : TextView
     private lateinit var percentLay : TextView
+
     var StartAngle = 30
     var StopAngle = 70
     // 추가 변수===============================================
@@ -166,6 +169,11 @@ class MainActivity : AppCompatActivity() {
 
         // 220606 button listener
         val btn_event = findViewById<Button>(R.id.button_retry)
+        val switch_event = findViewById<ImageButton>(R.id.camera_change)
+
+        // 9.1 camera_switch =======================================
+        switch_event.setOnClickListener{switchCamera()}
+        // 9.1 camera_switch =======================================
 
         btn_event.setOnClickListener{
             exer_count = 0
@@ -196,6 +204,25 @@ class MainActivity : AppCompatActivity() {
             requestPermission()
         }
     }
+
+    // 9.1 camera_switch =======================================
+    private fun switchCamera(){
+        if(cameraSource?.cameraId == "0"){
+
+                cameraSource?.cameraId = "1"
+                cameraSource?.camera?.close()
+                Log.d("device : ", cameraSource!!.cameraId)
+                openCamera()
+        }
+        else{
+                cameraSource?.cameraId = "0"
+                cameraSource?.camera?.close()
+                Log.d("device : ", cameraSource!!.cameraId)
+                openCamera()
+            }
+
+    }
+    // 9.1 camera_switch =======================================
 
     override fun onStart() {
         super.onStart()
@@ -402,14 +429,14 @@ class MainActivity : AppCompatActivity() {
                 showPoseClassifier(true)
                 showDetectionScore(true)
                 showTracker(false)
-                MoveNet.create(this, device, ModelType.Lightning)
+                MoveNet.create(this, device, ModelType.Thunder)
             }
             1 -> {
                 // MoveNet Thunder (SinglePose)
                 showPoseClassifier(true)
                 showDetectionScore(true)
                 showTracker(false)
-                MoveNet.create(this, device, ModelType.Thunder)
+                MoveNet.create(this, device, ModelType.Lightning)
             }
             2 -> {
                 // MoveNet (Lightning) MultiPose

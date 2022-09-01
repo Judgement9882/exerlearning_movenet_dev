@@ -77,4 +77,12 @@
         android:translationX="120dp"
         android:translationY="475dp" />
 
+    <ImageButton
+        android:id="@+id/camera_change"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:translationX="280dp"
+        android:translationY="600dp"
+        app:srcCompat="@android:drawable/ic_menu_camera" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -92,8 +92,8 @@ class CameraSource(
     private var imageReader: ImageReader? = null
 
     /** The [CameraDevice] that will be opened in this fragment */
-    private var camera: CameraDevice? = null
-
+//    private var camera: CameraDevice? = null
+    var camera: CameraDevice? = null
     /** Internal reference to the ongoing [CameraCaptureSession] configured with our parameters */
     private var session: CameraCaptureSession? = null
 
@@ -102,7 +102,9 @@ class CameraSource(
 
     /** [Handler] corresponding to [imageReaderThread] */
     private var imageReaderHandler: Handler? = null
-    private var cameraId: String = ""
+//    private var cameraId: String = ""
+    // 9.1 수정
+    var cameraId: String = ""
 
     suspend fun initCamera() {
         //countLay =
