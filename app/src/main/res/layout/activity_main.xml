@@ -9,9 +9,21 @@
     <SurfaceView
         android:id="@+id/surfaceView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:rotation="0" />
 
-    <include layout="@layout/bottom_sheet_layout"/>
+    <include layout="@layout/bottom_sheet_layout" />
+
+    <Chronometer
+        android:id="@+id/chronometer"
+        android:layout_width="443dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:gravity="center_horizontal"
+        android:textColor="#1AC2D1"
+        android:textSize="60dp"
+        android:translationX="-50dp"
+        android:translationY="50dp" />
 
     <TextView
         android:id="@+id/textView"
@@ -53,13 +65,25 @@
         app:layout_anchorGravity="center" />
 
     <Button
+        android:id="@+id/startBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="START"
+        android:textColor="@android:color/holo_green_light"
+        android:textSize="24sp"
+        android:translationY="493dp" />
+
+    <Button
         android:id="@+id/button_retry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Retry"
         android:textColor="@android:color/holo_green_light"
         android:textSize="24sp"
-        android:translationY="600dp" />
+        android:translationX="250dp"
+        android:translationY="360dp"
+        app:layout_anchor="@+id/countLayout"
+        app:layout_anchorGravity="start|top" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -75,7 +99,7 @@
         android:textColor="#7AD80D"
         android:textSize="60sp"
         android:translationX="120dp"
-        android:translationY="475dp" />
+        android:translationY="375dp" />
 
     <ImageButton
         android:id="@+id/camera_change"

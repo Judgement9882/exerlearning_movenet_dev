@@ -182,7 +182,9 @@ class CameraSource(
             val characteristics = cameraManager.getCameraCharacteristics(cameraId)
 
             // We don't use a front facing camera in this sample.
-            val cameraDirection = characteristics.get(CameraCharacteristics.LENS_FACING)
+//            val cameraDirection = characteristics.get(CameraCharacteristics.LENS_FACING)
+            // 바꾸기 위해 var로 변경
+            var cameraDirection = characteristics.get(CameraCharacteristics.LENS_FACING)
             if (cameraDirection != null &&
                 cameraDirection == CameraCharacteristics.LENS_FACING_FRONT
             ) {
@@ -191,6 +193,29 @@ class CameraSource(
             this.cameraId = cameraId
         }
     }
+
+    /// 9.2 스위치 카메라 추가
+//    suspend fun switchCamera(cam_dir:Int) {
+//        for (cameraId in cameraManager.cameraIdList) {
+//            val characteristics = cameraManager.getCameraCharacteristics(cameraId)
+//
+//
+////            var cameraDirection = characteristics.get(CameraCharacteristics.LENS_FACING)
+//            if (cam_dir == 0) { // 후면일 경우
+//                characteristics.set(CameraCharacteristics.LENS_FACING, 0)
+////                cameraDirection = CameraCharacteristics.LENS_FACING_FRONT
+//            }
+//            else{
+//                characteristics.set(CameraCharacteristics.LENS_FACING_FRONT)
+////                cameraDirection = CameraCharacteristics.LENS_FACING_BACK
+//            }
+//
+//            this.cameraId = cameraId
+//        }
+//
+//        close()
+//        openCamera(cameraManager, cameraId)
+//    }
 
     fun setDetector(detector: PoseDetector) {
         synchronized(lock) {

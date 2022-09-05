@@ -52,10 +52,22 @@ import java.lang.Math.atan2
 import kotlin.math.PI
 import kotlin.math.roundToInt
 
+import org.tensorflow.lite.examples.poseestimation.databinding.ActivityMainBinding
+import android.os.SystemClock
+import android.view.KeyEvent
+import android.widget.Toast
+
+
+
 class MainActivity : AppCompatActivity() {
     companion object {
         private const val FRAGMENT_DIALOG = "dialog"
     }
+
+//    9.5 타이머 설정
+    private var mBinding: ActivityMainBinding?= null
+    private val binding get() = mBinding!!
+//////////////////////////////////////////////////////////
 
     /** A [SurfaceView] for camera preview.   */
     private lateinit var surfaceView: SurfaceView
@@ -71,6 +83,8 @@ class MainActivity : AppCompatActivity() {
     private var exer_set = 0
     private var exer_count = 0
     private var exer_flag = 0
+    private var exer_set_number = 10 // 1세트에 해당하는 횟수
+
     /** Default device is CPU */
     private var device = Device.CPU
 
@@ -97,7 +111,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var setLay : TextView
     private lateinit var countLay : TextView
     private lateinit var percentLay : TextView
-
+//    var cam_dir = 0
     var StartAngle = 30
     var StopAngle = 70
     // 추가 변수===============================================
@@ -169,16 +183,70 @@ class MainActivity : AppCompatActivity() {
 
         // 220606 button listener
         val btn_event = findViewById<Button>(R.id.button_retry)
-        val switch_event = findViewById<ImageButton>(R.id.camera_change)
+//        val switch_event = findViewById<ImageButton>(R.id.camera_change)
 
         // 9.1 camera_switch =======================================
-        switch_event.setOnClickListener{switchCamera()}
+//        switch_event.setOnClickListener{switchCamera()}
+//        switch_event.setOnClickListener {
+//            if (cam_dir == 0) {
+//                cameraSource?.switchCamera(cam_dir)
+//                cam_dir = 1
+//            } else {
+//                cameraSource?.switchCamera(cam_dir)
+//                cam_dir = 0
+//            }
+//        }
+//
+//                cameraSource?.cameraId = "1"
+//                cameraSource?.camera?.close()
+//                Log.d("device : ", cameraSource!!.cameraId)
+//                openCamera()
+//        }
+//        else{
+//                cameraSource?.cameraId = "0"
+//                cameraSource?.camera?.close()
+//                Log.d("device : ", cameraSource!!.cameraId)
+//                openCamera()
+//            }
+
         // 9.1 camera_switch =======================================
 
-        btn_event.setOnClickListener{
+//        9.5 Timer
+
+        //바인딩 초기화
+        mBinding = ActivityMainBinding.inflate(layoutInflater)
+
+        // 생성된 뷰 액티비티에 표시시
+        setContentView(binding.root)
+
+        // elapsedRealtime: 부팅 이후의 밀리초를 리턴 (절전 모드에서 보낸 시간 포함)
+        // 사용자가 현재시간을 수정해도 영향 받지 않음
+        binding.startBtn.setOnClickListener {
+            binding.chronometer.base = SystemClock.elapsedRealtime()
+            binding.chronometer.start()
+
+            //버튼 표시 여부 조정
+            binding.buttonRetry.isEnabled = true
+            binding.startBtn.isEnabled = true
+        }
+
+        binding.buttonRetry.setOnClickListener {
+            binding.chronometer.base = SystemClock.elapsedRealtime()
+            binding.chronometer.stop()
+
+            //버튼 표시 여부 조정
+            binding.buttonRetry.isEnabled = true
+            binding.startBtn.isEnabled = true
+
             exer_count = 0
             exer_set = 0
         }
+
+
+//        btn_event.setOnClickListener{
+//            exer_count = 0
+//            exer_set = 0
+//        }
 
 
         tvScore = findViewById(R.id.tvScore)
@@ -206,22 +274,22 @@ class MainActivity : AppCompatActivity() {
     }
 
     // 9.1 camera_switch =======================================
-    private fun switchCamera(){
-        if(cameraSource?.cameraId == "0"){
-
-                cameraSource?.cameraId = "1"
-                cameraSource?.camera?.close()
-                Log.d("device : ", cameraSource!!.cameraId)
-                openCamera()
-        }
-        else{
-                cameraSource?.cameraId = "0"
-                cameraSource?.camera?.close()
-                Log.d("device : ", cameraSource!!.cameraId)
-                openCamera()
-            }
-
-    }
+//    private fun switchCamera(){
+//        if(cameraSource?.cameraId == "0"){
+//
+//                cameraSource?.cameraId = "1"
+//                cameraSource?.camera?.close()
+//                Log.d("device : ", cameraSource!!.cameraId)
+//                openCamera()
+//        }
+//        else{
+//                cameraSource?.cameraId = "0"
+//                cameraSource?.camera?.close()
+//                Log.d("device : ", cameraSource!!.cameraId)
+//                openCamera()
+//            }
+//
+//    }
     // 9.1 camera_switch =======================================
 
     override fun onStart() {
@@ -274,7 +342,10 @@ class MainActivity : AppCompatActivity() {
                                 CameraSource.secondY, CameraSource.thirdX, CameraSource.thirdY)
                             if ((exer_angle > StopAngle) and (exer_flag == 0)) {
                                 exer_count++
-                                exer_set = exer_count / 10
+                                if(exer_count % exer_set_number == 0){
+                                    exer_set++
+                                    exer_count%=exer_set_number
+                                }
                                 exer_flag = 1
                             }
                             else if ((exer_angle < StartAngle) and (exer_flag==1)){
