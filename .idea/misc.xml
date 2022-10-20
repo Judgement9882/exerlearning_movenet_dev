@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/kmmjj/Desktop/movenet_test/exerlearning_movenet_dev/app/src/main/res/layout/activity_choose_exer.xml" value="0.1" />
+        <entry key="..\:/Users/kmmjj/Desktop/movenet_test/exerlearning_movenet_dev/app/src/main/res/layout/activity_exer_info.xml" value="0.1" />
+        <entry key="..\:/Users/kmmjj/Desktop/movenet_test/exerlearning_movenet_dev/app/src/main/res/layout/activity_home.xml" value="0.1" />
+        <entry key="..\:/Users/kmmjj/Desktop/movenet_test/exerlearning_movenet_dev/app/src/main/res/layout/activity_insert_set_rep.xml" value="0.1" />
+        <entry key="..\:/Users/kmmjj/Desktop/movenet_test/exerlearning_movenet_dev/app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="..\:/Users/kmmjj/Desktop/movenet_test/exerlearning_movenet_dev/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/kmmjj/Desktop/movenet_test/exerlearning_movenet_dev/app/src/main/res/layout/activity_sign_up.xml" value="0.1" />
         <entry key="..\:/github_desktop/Movenet/examples/lite/examples/pose_estimation/android/app/src/main/res/layout/activity_main.xml" value="0.22010869565217392" />
         <entry key="..\:/github_desktop/Movenet/examples/lite/examples/pose_estimation/android/app/src/main/res/layout/bottom_sheet_layout.xml" value="0.12310030395136778" />
       </map>

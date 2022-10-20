@@ -5,5 +5,108 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".InsertSetRep">
+    <TextView
+        android:id="@+id/choose_text"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:background="#4E7BEF"
+        android:text="세트/횟수를 입력하세요."
+        android:textAlignment="viewStart"
+        android:textColor="@color/white"
+        android:textScaleX="1"
+        android:textSize="40sp"
+        android:textStyle="bold"
 
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <TextView
+        android:id="@+id/exer_set"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:background="#FFFFFF"
+        android:gravity="center"
+        android:text="세트 : "
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textScaleX="1"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/choose_text"
+        app:layout_constraintVertical_bias="0.214"
+        tools:ignore="RtlCompat" />
+
+    <TextView
+        android:id="@+id/exer_rep"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:background="#FFFFFF"
+        android:text="세트당 \n운동횟수 :"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textScaleX="1"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/exer_set"
+        app:layout_constraintVertical_bias="0.175" />
+
+    <EditText
+        android:id="@+id/exer_set_num"
+        android:layout_width="94dp"
+        android:layout_height="68dp"
+        android:layout_marginStart="176dp"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="textPersonName"
+        android:text="5"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="@+id/exer_set"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/exer_set"
+        app:layout_constraintVertical_bias="0.562" />
+
+    <EditText
+        android:id="@+id/exer_rep_num"
+        android:layout_width="94dp"
+        android:layout_height="68dp"
+        android:layout_marginStart="176dp"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="textPersonName"
+        android:text="5"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="@+id/exer_rep"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/exer_rep"
+        app:layout_constraintVertical_bias="0.562" />
+
+
+    <Button
+        android:id="@+id/exer_start"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:backgroundTint="#C14E4E"
+        android:text="운동 시작"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/exer_rep"
+        app:layout_constraintVertical_bias="0.596" />
 </androidx.constraintlayout.widget.ConstraintLayout>

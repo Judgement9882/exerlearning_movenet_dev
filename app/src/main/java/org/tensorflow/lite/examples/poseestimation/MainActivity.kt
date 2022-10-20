@@ -181,6 +181,12 @@ class MainActivity : AppCompatActivity() {
         // keep screen on while app is running
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
+        // 10-18 합치기
+        val intent = intent
+        val exer_set = intent.getStringExtra("set_exer")
+        val exer_rep = intent.getStringExtra("rep_exer")
+        val exer_name = intent.getStringExtra("exer_name")
+
         // 220606 button listener
         val btn_event = findViewById<Button>(R.id.button_retry)
 //        val switch_event = findViewById<ImageButton>(R.id.camera_change)
@@ -239,7 +245,7 @@ class MainActivity : AppCompatActivity() {
             binding.startBtn.isEnabled = true
 
             exer_count = 0
-            exer_set = 0
+//            exer_set = 0
         }
 
 

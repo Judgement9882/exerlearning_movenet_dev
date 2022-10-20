@@ -5,5 +5,82 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ChooseExerActivity">
+    <TextView
+        android:id="@+id/choose_text"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:background="#4E7BEF"
+        android:text="운동을 선택하세요"
+        android:textAlignment="viewStart"
+        android:textColor="@color/white"
+        android:textScaleX="1"
+        android:textSize="48sp"
+        android:textStyle="bold"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/exer_two"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="50dp"
+        android:background="#0C0B0B"
+        android:backgroundTint="@color/purple_500"
+        android:backgroundTintMode="screen"
+        android:text="측면 다리들기"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#D3C54B"
+        android:textColorHint="#D8CD68"
+        android:textColorLink="#EFE26C"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/exer_one"
+        app:layout_constraintVertical_bias="0.184"
+        app:rippleColor="#D6C950" />
+
+    <Button
+        android:id="@+id/exer_three"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:backgroundTint="@color/teal_200"
+        android:text="스쿼트"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/exer_two"
+        app:layout_constraintVertical_bias="0.272" />
+
+    <Button
+        android:id="@+id/exer_one"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="300dp"
+        android:backgroundTint="#C14E4E"
+        android:text="사이드 래터럴 레이즈"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/choose_text"
+        app:layout_constraintVertical_bias="0.19" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

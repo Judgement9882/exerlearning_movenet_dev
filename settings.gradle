@@ -1,2 +1,12 @@
+// logintest2에서 추가
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+
+
 include ':app'
 rootProject.name = "TFLite Pose Estimation"
