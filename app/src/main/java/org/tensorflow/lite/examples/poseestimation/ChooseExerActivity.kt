@@ -23,21 +23,21 @@ class ChooseExerActivity : AppCompatActivity() {
         exer_three_button = findViewById(R.id.exer_three)
 
         exer_one_button.setOnClickListener {
-            val nextIntent = Intent(this@ChooseExerActivity,InsertSetRep::class.java)
+            val nextIntent = Intent(this@ChooseExerActivity,ExerYoutube::class.java)
             nextIntent.putExtra("id", user_id)
             nextIntent.putExtra("exer_name", "exer_one")
             startActivity(nextIntent)
         }
 
         exer_two_button.setOnClickListener {
-            val nextIntent = Intent(this@ChooseExerActivity,InsertSetRep::class.java)
+            val nextIntent = Intent(this@ChooseExerActivity,ExerYoutube::class.java)
             nextIntent.putExtra("id", user_id)
             nextIntent.putExtra("exer_name", "exer_two")
             startActivity(nextIntent)
         }
 
         exer_three_button.setOnClickListener {
-            val nextIntent = Intent(this@ChooseExerActivity,InsertSetRep::class.java)
+            val nextIntent = Intent(this@ChooseExerActivity,ExerYoutube::class.java)
             nextIntent.putExtra("id", user_id)
             nextIntent.putExtra("exer_name", "exer_three")
             startActivity(nextIntent)

@@ -27,9 +27,10 @@ class InsertSetRep : AppCompatActivity() {
         // 운동 시작 버튼
         exer_start_button.setOnClickListener {
             val nextIntent = Intent(this@InsertSetRep,MainActivity::class.java)
+            nextIntent.putExtra("id", user_id)
+            nextIntent.putExtra("exer_name", exer_name)
             nextIntent.putExtra("set_exer", exer_set.toString())
             nextIntent.putExtra("rep_exer", exer_rep.toString())
-            nextIntent.putExtra("exer_name", exer_name)
             startActivity(nextIntent)
 
             Log.e("e", "1")

@@ -26,7 +26,7 @@
         android:translationY="50dp" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/exer_name"
         android:layout_width="398dp"
         android:layout_height="wrap_content"
         android:text="Exerlearning"
