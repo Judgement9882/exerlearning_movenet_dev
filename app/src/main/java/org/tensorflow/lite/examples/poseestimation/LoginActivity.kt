@@ -34,7 +34,7 @@ class LoginActivity : AppCompatActivity() {
 
         // 2. 레트로핏 생성
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://ec2-13-57-234-0.us-west-1.compute.amazonaws.com:3000")
+            .baseUrl("your link")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
 
