@@ -38,7 +38,7 @@ class SignUpActivity : AppCompatActivity() {
 
         // 2. 레트로핏 생성
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://ec2-13-57-234-0.us-west-1.compute.amazonaws.com:3000")
+            .baseUrl("your link")
             .addConverterFactory(GsonConverterFactory.create(gson))
             // https://stackoverflow.com/questions/42386250/android-retrofit-2-0-json-document-was-not-fully-consumed
             // JSON Document was not fully consumed 오류 해결방법
